@@ -1,0 +1,23 @@
+{
+  "name": "simple-calculator",
+  "version": "1.0.0",
+  "description": "A simple calculator using html/javascript and no external Math libs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecotg/Smple-Calculator.git"
+  },
+  "author": "E.Christy Okpo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecotg/Smple-Calculator/issues"
+  },
+  "homepage": "https://github.com/ecotg/Smple-Calculator#readme",
+  "devDependencies": {
+    "express": "^4.13.4"
+  }
+}
