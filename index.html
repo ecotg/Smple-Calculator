@@ -1,28 +1,29 @@
 <html>
 	<head>
-		<style type="text/css">
-		</style>
 		<title>Simple HTML Calculator.</title>
-		<link
+		<link rel="stylesheet" type="text/css" href="index.css"></link>
 	</head>
-		<body>
-		<div>
-			<table id="calc_values">
+	<body>
+		<div id="calculator">
+			<table id="calcPad" class="calcInput">
 		      <tr>
-		        <textarea id="calcInput"></textarea>
+		        <textarea id="calcScreen" class="calcInput"></textarea>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="(" class="val">
 		        </td>
 		        <td>
 		          <input type="button" value=")" class="val">
 		        </td>
-		        <td>
-		          <input type="button" value="AC" class="val">
+            	<td>
+		          <input type="button" value="&" class="val" id="dummy" disabled>
+		        </td>
+		        <td id="AC">
+		          <input type="button" value="AC" class="val" id="clear">
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="7" class="val">
 		        </td>
@@ -33,10 +34,10 @@
 		          <input type="button" value="9" class="val">
 		        </td>
 		        <td>
-		          <input type="button" value="*" class="val">
+		          <input type="button" value="*" class="oper">
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="4" class="val">
 		        </td>
@@ -47,10 +48,10 @@
 		          <input type="button" value="6" class="val">
 		        </td>
 		        <td>
-		          <input type="button" value="/" class="val">
+		          <input type="button" value="/" class="oper">
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="1" class="val">
 		        </td>
@@ -61,10 +62,10 @@
 		          <input type="button" value="3" class="val">
 		        </td>
 		        <td>
-		          <input type="button" value="-" class="val">
+		          <input type="button" value="-" class="oper">
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="0" class="val">
 		        </td>
@@ -72,14 +73,14 @@
 		          <input type="button" value="." class="val">
 		        </td>
 		        <td>
-		          <input type="button" value="=" class="val">
+		          <input type="button" value="=" class="val" id="eval">
 		        </td>
 		        <td>
-		          <input type="button" value="+" class="val">
+		          <input type="button" value="+" class="oper">
 		        </td>
 		      </tr>
 		    </table>
 		</div>
-		<script src="myScript.js"></script>
+		<script src="bundle.js"></script>
 	</body>
 </html>
