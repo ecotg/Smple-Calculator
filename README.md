@@ -11,6 +11,6 @@ Design and implement a calculator in Javascript. It shall have the following pro
 - don't have the right to use "eval" or new Function etc...
 
 #To Use:
-git clone <repo>
-npm start
-Navigate to localhost:8080
+- git clone <repo>
+- npm start
+- Navigate to localhost:8080
