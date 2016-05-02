@@ -2,15 +2,9 @@ var calculator = require('../scripts/js/calculator').calculate;
 
 console.log('Running tests...');
 describe('Calculator', function(){
-	it('should solve 3 + 4 as 7', function(done){
+	it('should solve 3 + 4', function(done){
 		var solution = calculator('3 + 4');
 		expect(solution).toBe('7');
-		done();
-	});
-
-	it('should solve -3 + 2', function(done){
-		var solution = calculator('-3 + 2');
-		expect(solution).toBe('-1');
 		done();
 	});
 
@@ -29,12 +23,6 @@ describe('Calculator', function(){
 	it('should solve 5*(2+3)+15/5+2**3', function(done){
 		var solution = calculator('5*(2+3)+15/5+2**3');
 		expect(solution).toBe('36');
-		done();
-	});
-
-	it('should solve 15 - -2', function(done){
-		var solution = calculator('15 - -2');
-		expect(solution).toBe('17');
 		done();
 	});
 
