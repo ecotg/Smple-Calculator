@@ -158,9 +158,4 @@ var exponents = function (base, power){
   }
 };
 
-var clearCalc = function () {
-  var calculator = document.getElementById("calcScreen");
-  calculator.value = "";
-};
-
 module.exports.calculate = calculate;
