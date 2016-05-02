@@ -1,4 +1,4 @@
-var calculator = require('../scripts/calculator').calculate;
+var calculator = require('../scripts/js/calculator').calculate;
 
 console.log('Running tests...');
 describe('Calculator', function(){
@@ -85,4 +85,5 @@ describe('Calculator', function(){
 		expect(solution).toBe('1e+24');
 		done();
 	});
+
 });

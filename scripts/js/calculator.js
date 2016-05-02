@@ -2,9 +2,7 @@ var calculate = function (question){
   var m = new RegExp(/\([^)(]+\)/g);
   // replace ** with ^ to make code clearer
   question = question.replace(/\*\*/g, "^");
-
   question = question.replace(/\s/g, "");
-  console.log('standardized question ' + question);
 
   var double = question.match(/[-\+]{2}/g);
 
@@ -23,7 +21,6 @@ var calculate = function (question){
   if (double !== null){
     for (var i=0; i < double.length; i++){
       var subbed = sub(double[i]);
-      console.log('subbing ' + double[i] + ' with ' + subbed);
       question = question.replace(double[i], subbed);
     }
   }
@@ -34,12 +31,10 @@ var pedmas = function (question, m) {
   var solution;
   if (question.match(m) === null) {
     solution = arithmetic(question);
-    console.log('finally solving ' + question + ' === ' + solution);
     return solution;
   } else {
     var subQuestion = question.match(m)[0];
     solution = arithmetic(subQuestion);
-    console.log('Solved ' + subQuestion + ' == ' + solution);
 
     return pedmas(question.replace(subQuestion, solution), m);
   }
@@ -82,17 +77,12 @@ var arithmetic = function (question) {
 
     while (m !== null){
       var op = m[0].split(/\d*\.?\d+/)[1][0];
-      console.log('found arithmetic operand --> ' + op);
-      console.log('found arithmetic equation ' + m);
       var solution = operation(op, m[0]);
 
       if (solution !== null) {
-        console.log('Found arithmetic solution ' + solution);
         q = q.replace(m[0], solution);
-        console.log('updated question ' + q);
         m = q.match(operators[i]);
       } else {
-        console.log('arithmetic equation returned null solution');
         m = null;
         q = null;
       }
@@ -103,9 +93,9 @@ var arithmetic = function (question) {
 
 var operation = function (op, question){
   var stop = question.lastIndexOf(op);
-  console.log('we found stop ' + stop);
 
-  var q = [question.substring(0, stop), question.substring(stop+1)].map(function(x){
+  var q = [question.substring(0, stop), question.substring(stop+1)]
+            .map(function(x){
     return  parseFloat(x);
   });
 
@@ -125,7 +115,7 @@ var operation = function (op, question){
 };
 
 var exponents = function (base, power){
-  var ans;
+  var ans,i;
 
   if (power == 0){
     return 1;
@@ -133,13 +123,13 @@ var exponents = function (base, power){
     return base;
   } else if (power < 0) {
     ans = 1;
-    for (var i = 0; i < -1*power; i++){
+    for (i = 0; i < -1*power; i++){
       ans = ans * (1 / base);
     }
     return ans;
   } else {
     ans = 1;
-    for (var i = 0; i < power; i++){
+    for (i = 0; i < power; i++){
       ans = ans * base;
     }
     return ans;

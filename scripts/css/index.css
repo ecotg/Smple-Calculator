@@ -6,7 +6,7 @@ html {
 }
 
 #calculator {
-  border: solid 1px red;
+  border: solid 1px gray;
   width: 320px;
 	height: auto;
 
@@ -19,7 +19,9 @@ html {
 }
 
 #calcScreen {
-  width: 315px;
+  box-sizing: border-box;
+  padding-left:3px;
+  width: 317px;
   height: 36px;
   cursor: text;
   background: rgba(0, 0, 0, 0.2);

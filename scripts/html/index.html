@@ -5,11 +5,11 @@
 	</head>
 	<body>
 		<div id="calculator">
-			<table id="calcPad" class="calcInput">
+			<table id="calcPad">
 		      <tr>
-		        <textarea id="calcScreen" class="calcInput"></textarea>
+		        <textarea id="calcScreen"></textarea>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="(" class="val">
 		        </td>
@@ -17,13 +17,13 @@
 		          <input type="button" value=")" class="val">
 		        </td>
             	<td>
-		          <input type="button" value="!" class="val" id="dummy" disabled>
+		          <input type="button" value="&" class="val" id="dummy" disabled>
 		        </td>
 		        <td id="AC">
 		          <input type="button" value="AC" class="val" id="clear">
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="7" class="val">
 		        </td>
@@ -37,7 +37,7 @@
 		          <input type="button" value="*" class="oper">
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="4" class="val">
 		        </td>
@@ -51,7 +51,7 @@
 		          <input type="button" value="/" class="oper">
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="1" class="val">
 		        </td>
@@ -65,7 +65,7 @@
 		          <input type="button" value="-" class="oper">
 		        </td>
 		      </tr>
-		      <tr>
+		      <tr class="keys">
 		        <td>
 		          <input type="button" value="0" class="val">
 		        </td>
