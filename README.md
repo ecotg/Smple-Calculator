@@ -13,4 +13,5 @@ Design and implement a calculator in Javascript. It shall have the following pro
 #To Use:
 - git clone {repo}
 - npm start
-- Navigate to localhost:8080
+- In Google Chrome, navigate to localhost:8080
+- gulp test

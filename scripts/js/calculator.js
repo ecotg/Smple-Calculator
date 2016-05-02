@@ -1,4 +1,9 @@
 var calculate = function (question){
+
+  if (validOp(question) == false){
+    return 'Error';
+  }
+
   var m = new RegExp(/\([^)(]+\)/g);
   // replace ** with ^ to make code clearer
   question = question.replace(/\*\*/g, "^");
@@ -27,6 +32,17 @@ var calculate = function (question){
   return pedmas(question, m);
 };
 
+var validOp = function (question){
+  // i.e 9/4+ or 3+
+  var invalid = new RegExp(/[-\+\^\*]$/)
+
+  if (question.match(invalid)){
+    return false;
+  }
+
+  return true;
+}
+
 var pedmas = function (question, m) {
   var solution;
   if (question.match(m) === null) {
@@ -51,16 +67,22 @@ var arithmetic = function (question) {
 
   var operators = [
     multilineRegex([
-      /^[\+-]?\d*\.?\d+\^\d*\.?\d+|\d*\.?\d+/,
-      /\^\d*\.?\d+|\d*\.?\d+\^[\+-]?\d*\.?\d+/]
+      /^[\+-]?\d*\.?\d+\^\d*\.?\d+|/,
+      /\d*\.?\d+\^\d*\.?\d+|/,
+      /^[\+-]?\d*\.?\d+\^[\+-]?\d*\.?\d+|/,
+      /\d*\.?\d+\^[\+-]?\d*\.?\d+/]
     ),
     multilineRegex([
-      /^[\+-]?\d*\.?\d+\/\d*\.?\d+|\d*\.?\d+/,
-      /\/\d*\.?\d+|\d*\.?\d+\/[\+-]?\d*\.?\d+/]
+      /^[\+-]?\d*\.?\d+\/\d*\.?\d+|/,
+      /\d*\.?\d+\/\d*\.?\d+|/,
+      /^[\+-]?\d*\.?\d+\/[\+-]?\d*\.?\d+|/,
+      /\d*\.?\d+\/[\+-]?\d*\.?\d+/]
     ),
     multilineRegex([
-      /^[\+-]?\d*\.?\d+\*\d*\.?\d+|\d*\.?\d+\*/,
-      /\d*\.?\d+|\d*\.?\d+\*[\+-]?\d*\.?\d+/]
+      /^[\+-]?\d*\.?\d+\*\d*\.?\d+|/,
+      /\d*\.?\d+\*\d*\.?\d+|/,
+      /^[\+-]?\d*\.?\d+\*[\+-]?\d*\.?\d+|/,
+      /\d*\.?\d+\*[\+-]?\d*\.?\d+/]
     ),
     multilineRegex([
       /^[\+-]?\d*\.?\d+\+\d*\.?\d+|\d*\.?\d+\+/,

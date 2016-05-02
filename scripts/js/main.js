@@ -3,7 +3,10 @@ window.onload = function() {
 
   var calcScreen = document.getElementById("calcScreen");
   calcScreen.addEventListener('keydown', function(e){
-    if (e.keyCode == 13 || (e.keyCode == 187 && e.shiftKey === false)) {
+    if (
+      e.keyCode == 13 ||
+      (e.keyCode == 187 && e.shiftKey === false)
+    ) {
        e.preventDefault();
        solve();
     } else {

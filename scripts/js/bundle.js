@@ -1,5 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var calculate = function (question){
+
+  if (validOp(question) == false){
+    return 'Error';
+  }
+
   var m = new RegExp(/\([^)(]+\)/g);
   // replace ** with ^ to make code clearer
   question = question.replace(/\*\*/g, "^");
@@ -28,6 +33,17 @@ var calculate = function (question){
   return pedmas(question, m);
 };
 
+var validOp = function (question){
+  // i.e 9/4+ or 3+
+  var invalid = new RegExp(/[-\+\^\*]$/)
+
+  if (question.match(invalid)){
+    return false;
+  }
+
+  return true;
+}
+
 var pedmas = function (question, m) {
   var solution;
   if (question.match(m) === null) {
@@ -52,16 +68,22 @@ var arithmetic = function (question) {
 
   var operators = [
     multilineRegex([
-      /^[\+-]?\d*\.?\d+\^\d*\.?\d+|\d*\.?\d+/,
-      /\^\d*\.?\d+|\d*\.?\d+\^[\+-]?\d*\.?\d+/]
+      /^[\+-]?\d*\.?\d+\^\d*\.?\d+|/,
+      /\d*\.?\d+\^\d*\.?\d+|/,
+      /^[\+-]?\d*\.?\d+\^[\+-]?\d*\.?\d+|/,
+      /\d*\.?\d+\^[\+-]?\d*\.?\d+/]
     ),
     multilineRegex([
-      /^[\+-]?\d*\.?\d+\/\d*\.?\d+|\d*\.?\d+/,
-      /\/\d*\.?\d+|\d*\.?\d+\/[\+-]?\d*\.?\d+/]
+      /^[\+-]?\d*\.?\d+\/\d*\.?\d+|/,
+      /\d*\.?\d+\/\d*\.?\d+|/,
+      /^[\+-]?\d*\.?\d+\/[\+-]?\d*\.?\d+|/,
+      /\d*\.?\d+\/[\+-]?\d*\.?\d+/]
     ),
     multilineRegex([
-      /^[\+-]?\d*\.?\d+\*\d*\.?\d+|\d*\.?\d+\*/,
-      /\d*\.?\d+|\d*\.?\d+\*[\+-]?\d*\.?\d+/]
+      /^[\+-]?\d*\.?\d+\*\d*\.?\d+|/,
+      /\d*\.?\d+\*\d*\.?\d+|/,
+      /^[\+-]?\d*\.?\d+\*[\+-]?\d*\.?\d+|/,
+      /\d*\.?\d+\*[\+-]?\d*\.?\d+/]
     ),
     multilineRegex([
       /^[\+-]?\d*\.?\d+\+\d*\.?\d+|\d*\.?\d+\+/,
@@ -149,7 +171,10 @@ window.onload = function() {
 
   var calcScreen = document.getElementById("calcScreen");
   calcScreen.addEventListener('keydown', function(e){
-    if (e.keyCode == 13 || (e.keyCode == 187 && e.shiftKey === false)) {
+    if (
+      e.keyCode == 13 ||
+      (e.keyCode == 187 && e.shiftKey === false)
+    ) {
        e.preventDefault();
        solve();
     } else {

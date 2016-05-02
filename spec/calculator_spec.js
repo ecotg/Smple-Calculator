@@ -86,4 +86,10 @@ describe('Calculator', function(){
 		done();
 	});
 
+	it('should solve -9.3/-3.1', function(done){
+		var solution = calculator('-9.3/-3.1');
+		expect(solution).toBe('3');
+		done();
+	});
+
 });

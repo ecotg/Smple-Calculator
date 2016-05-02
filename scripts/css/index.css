@@ -1,4 +1,3 @@
-
 html {
 	height: 100%;
 	background: white;
@@ -19,10 +18,10 @@ html {
 }
 
 #calcScreen {
-  box-sizing: border-box;
-  padding-left:3px;
+  margin-left: 2px;
+  padding-left: 5px;
   width: 317px;
-  height: 36px;
+  height: 40px;
   cursor: text;
   background: rgba(0, 0, 0, 0.2);
   color: #ffffff;
@@ -58,25 +57,22 @@ input:active {
 #dummy {
   background-color: Transparent;
   border: none;
-  outline:none;
+  outline: none;
   color: Transparent;
 }
 
 #clear {
   cursor: default;
-  background: #e9967a;
   background: #f0899c;
   color: #ffffff
 }
 
 #eval {
   cursor: default;
-  background: #addfad;
   background: #89f0aa;
 }
 
 .oper {
-  background: #ffffed;
   background: #f0de89;
   color: #36454f;
   cursor: pointer;
