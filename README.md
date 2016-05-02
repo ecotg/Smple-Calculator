@@ -9,3 +9,8 @@ Design and implement a calculator in Javascript. It shall have the following pro
 - respect the priority of operators
 - don't have the right to use a math library of some sort that magically does it
 - don't have the right to use "eval" or new Function etc...
+
+#To Use:
+git clone <repo>
+npm start
+Navigate to localhost:8080
