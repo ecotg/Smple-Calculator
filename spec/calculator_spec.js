@@ -92,4 +92,15 @@ describe('Calculator', function(){
 		done();
 	});
 
+	it('should not solve 9+', function(done){
+		var solution = calculator('9+');
+		expect(solution).toBe('Error');
+		done();
+	});
+
+	it('should not solve 8//4', function(done){
+		var solution = calculator('8//4');
+		expect(solution).toBe('8//4');
+		done();c
+	});
 });
