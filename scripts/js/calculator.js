@@ -1,6 +1,6 @@
 var calculate = function (question){
 
-  if (validOp(question) == false){
+  if (validOp(question) === false){
     return 'Error';
   }
 
@@ -34,14 +34,14 @@ var calculate = function (question){
 
 var validOp = function (question){
   // i.e 9/4+ or 3+
-  var invalid = new RegExp(/[-\+\^\*]$/)
+  var invalid = new RegExp(/[-\+\^\*][\(\)]?$/);
 
   if (question.match(invalid)){
     return false;
   }
 
   return true;
-}
+};
 
 var pedmas = function (question, m) {
   var solution;
